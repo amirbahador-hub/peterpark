@@ -1,0 +1,21 @@
+GET search Plate
+---
+tags:
+  - Plate
+
+parameters:
+  - in: query
+    name: key
+    required: true
+
+  - in: query
+    name: levenshtein
+    required: false
+
+
+responses:
+  200:
+    description: searched plate
+
+  422:
+    description: validation error

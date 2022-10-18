@@ -1,0 +1,9 @@
+GET all plates
+---
+tags:
+  - Plate
+
+responses:
+  200:
+    description: get all plates
+

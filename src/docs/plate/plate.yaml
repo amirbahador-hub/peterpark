@@ -1,0 +1,24 @@
+Create Plate
+---
+tags:
+  - Plate
+parameters:
+  - name: body
+    description: The body should contain the plate
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - "plate"
+      properties:
+        plate:
+          type: "plate"
+          example: "string"
+responses:
+  201:
+    description: When plate created succesfully
+
+  422:
+    description: validation error
+

@@ -1,1 +1,4 @@
 flask
+flask-migrate
+flask-pydantic
+psycopg2-binary
