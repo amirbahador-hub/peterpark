@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+
+    postgres:
+      #image: docker.superz.ir/utils/postgis:latest
+        image: mdillon/postgis:latest
+        container_name: postgres
+        ports:
+          - 5432:5432
+        environment:
+            POSTGRES_PORT: 5432
+            POSTGRES_DB: "peterpark"
+            POSTGRES_USER: "peterpark"
+            POSTGRES_PASSWORD: "pass"
+        volumes:
+            - postgres-data:/var/lib/postgresql/data/
+
+
+volumes:
+    postgres-data:
+
