@@ -1,4 +1,6 @@
 flask
+flasgger
 flask-migrate
 flask-pydantic
 psycopg2-binary
+pytest-flask
