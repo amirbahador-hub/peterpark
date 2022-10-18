@@ -17,8 +17,8 @@ def create_app(test_config=None):
 
     if test_config is None:
         app.config.from_mapping(
-            SECRET_KEY=os.environ.get("SECRET_KEY"),
-            SQLALCHEMY_DATABASE_URI=os.environ.get("SQLALCHEMY_DB_URI"),
+            SECRET_KEY=os.environ.get("SECRET_KEY", "dev"),
+            SQLALCHEMY_DATABASE_URI=os.environ.get("SQLALCHEMY_DB_URI", "postgresql://peterpark:pass@localhost"),
             SQLALCHEMY_TRACK_MODIFICATIONS=False,
             SWAGGER={"title": "Plate API", "uiversion": 3},
         )
@@ -31,6 +31,8 @@ def create_app(test_config=None):
     app.register_blueprint(core)
 
     Swagger(app, config=swagger_config, template=template)
+    with app.app_context():
+        db.create_all()
 
     @app.errorhandler(HTTP_404_NOT_FOUND)
     def handle_404(e):

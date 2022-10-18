@@ -13,7 +13,7 @@ from datetime import datetime
 from flask_pydantic import validate
 import re
 
-core = Blueprint("core", __name__, url_prefix="/api/v1")
+core = Blueprint("core", __name__,)
 
 
 @core.get("/plate")
